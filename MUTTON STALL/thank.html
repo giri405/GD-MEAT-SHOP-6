@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Success</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f093fb, #f5576c);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .success-box {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
+      animation: popIn 1s ease;
+      position: relative;
+    }
+
+    .success-box h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #4CAF50;
+    }
+
+    .success-box p {
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    .checkmark {
+      font-size: 60px;
+      color: #4CAF50;
+      animation: bounce 1s ease;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* Confetti animation */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: red;
+      animation: fall 3s infinite ease-in;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(500px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="success-box">
+    <div class="checkmark">✔️</div>
+    <h1>Order Placed!</h1>
+    <p>Thank you! Your order has been successfully placed.</p>
+  </div>
+
+  <!-- Confetti Elements -->
+  <script>
+    for (let i = 0; i < 50; i++) {
+      const conf = document.createElement('div');
+      conf.className = 'confetti';
+      conf.style.left = Math.random() * 100 + 'vw';
+      conf.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
+      conf.style.animationDuration = 2 + Math.random() * 2 + 's';
+      conf.style.animationDelay = Math.random() * 2 + 's';
+      document.body.appendChild(conf);
+    }
+  </script>
+
+</body>
+</html>

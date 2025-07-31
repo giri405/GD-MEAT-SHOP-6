@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart Page</title>
+  <link rel="stylesheet" href="cart.css" />
+</head>
+<style>body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #b53f3f;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.cart-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.cart-item {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+
+.cart-item h2 {
+  margin: 0;
+}
+
+input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.total-box {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.total-box button {
+  padding: 10px 20px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.total-box button:hover {
+  background: #388e3c;
+}
+</style>
+<body>
+  
+  <header>
+    <h1>Your Cart</h1>
+  </header>
+
+  <main class="cart-container">
+    <div class="cart-item">
+      <h2>Fresh Chicken</h2>
+      <p>Price: ₹250/kg</p>
+      <label>Quantity0(kg):</label>
+      <input type="100" min="0" value="1" class="qty" data-price="250" />
+    </div>
+
+    <div class="cart-item">
+      <h2>MuttonBoneless</h2>
+      <p>Price: ₹650/kg</p>
+      <label>Quantity0 (kg):</label>
+      <input type="100" min="1" value="1" class="qty" data-price="500" />
+    </div>
+    <div class="cart-item">
+      <h2>Fresh Fish</h2>
+      <p>Price: ₹350/kg</p>
+      <label>Quantity0(kg):</label>
+      <input type="100" min="0" value="1" class="qty" data-price="500" />
+    </div>
+    <div class="cart-item">
+      <h2>Prawns</h2>
+      <p>Price: ₹450/kg</p>
+      <label>Quantity 0 (kg):</label>
+      <input type="100" min="0" value="1" class="qty" data-price="500" />
+    </div>
+    <div class="cart-item">
+      <h2>Crab</h2>
+      <p>Price: ₹500/kg</p>
+      <label>Quantity (kg):</label>
+      <input type="100" min="0" value="1" class="qty" data-price="500" />
+    </div>
+    <div class="cart-item">
+      <h2>Labster</h2>
+      <p>Price: ₹1200/kg</p>
+      <label>Quantity (kg):</label>
+      <input type="100" min="0" value="1" class="qty" data-price="500" />
+    </div>
+    <div class="cart-item">
+      <h2>Mutton Liver</h2>
+      <p>Price: ₹250/kg</p>
+      <label>Quantity (kg):</label>
+      <input type="100" min="0" value="1" class="qty" data-price="500" />
+    </div>
+    <div class="cart-item">
+      <h2>Eggs(Regular)</h2>
+      <p>Price: ₹6/pes</p>
+      <label>Quantity (kg):</label>
+      <input type="100" min="0" value="1" class="qty" data-price="500" />
+    </div>
+    <div class="cart-item">
+      <h2>Form Eggs</h2>
+      <p>Price: ₹10/pes</p>
+      <label>Quantity (kg):</label>
+      <input type="100" min="0" value="1" class="qty" data-price="500" />
+    </div>
+    <div class="cart-item">
+      <h2>Lilipop</h2>
+      <p>Price: ₹40/pes</p>
+      <label>Quantity (kg):</label>
+      <input type="100" min="0" value="1" class="qty" data-price="500" />
+    </div>
+    <div class="cart-item">
+      <h2>Leg pieace</h2>
+      <p>Price: ₹270/kg</p>
+      <label>Quantity (kg):</label>
+      <input type="100" min="0" value="1" class="qty" data-price="500" />
+    </div>
+    <div class="cart-item">
+      <h2>Brain</h2>
+      <p>Price: ₹100/Set</p>
+      <label>Quantity0 (kg):</label>
+      <input type="100" min="0" value="1" class="qty" data-price="500" />
+    </div>
+
+    <div class="total-box">
+      <h3>Total: ₹<span id="total"></span></h3>
+    
+      <a href="./thank.html">Proceed to Checkout</a>
+    </div>
+    
+  </main>
+
+  <script>
+    const qtyInputs = document.querySelectorAll(".qty");
+    const totalDisplay = document.getElementById("total");
+
+    function calculateTotal() {
+      let total = 0;
+      qtyInputs.forEach(input => {
+        const price = parseFloat(input.dataset.price);
+        const quantity = parseFloat(input.value);
+        total += price * quantity;
+      });
+      totalDisplay.textContent = total;
+    }
+
+    qtyInputs.forEach(input => {
+      input.addEventListener("input", calculateTotal);
+    });
+
+    function checkout() {
+      alert("Order placed! Thank you.");
+    }
+
+    // Initialize total on page load
+    calculateTotal();
+  </script>
+</body>
+</html>

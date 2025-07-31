@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Cart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.shop, .cart {
+  background-color: white;
+  padding: 20px;
+  width: 40%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ccc;
+}
+
+.product {
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 8px 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+</style>
+<body>
+  <div class="shop">
+    <h1>Meat Shop</h1>
+    <div class="product">
+      <h3>Chicken - ₹150</h3>
+      <button onclick="addToCart('Chicken', 150)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h3>Mutton - ₹350</h3>
+      <button onclick="addToCart('Mutton', 350)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h3>Fish - ₹200</h3>
+      <button onclick="addToCart('Fish', 200)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="cart">
+    <h2>Cart</h2>
+    <ul id="cartItems"></ul>
+    <p>Total: ₹<span id="total">0</span></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
